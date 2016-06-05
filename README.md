@@ -1,0 +1,151 @@
+# Introduction
+The following provides documentation on how to setup and host a production ready MEAN app with Angular2 (beta)
+- written in Typescript
+- bootstrapped with angular-cli
+- bundled with Webpack
+- hosted on Heroku
+- Node.js backend server
+- MongoDB + Mongoose
+- Express.js web framework
+
+---
+
+# Install global dependencies
+```
+brew update
+brew install node mongodb
+npm install -g angular-cli typescript
+```
+
+
+# Bootstrap your angular app with
+``ng new <your-app-name> && cd <your-app-name>``
+
+
+# Install app dependencies
+``npm install express method-override mongoose body-parser --save``
+
+
+# Install dev dependencies
+``npm install babel-core babel-loader babel-preset-es2015 compression-webpack-plugin rimraf ts-helpers ts-loader webpack raw-loader json-loader --save-dev``
+
+
+# Move assets into public folder
+```
+mv src/favicon.ico public/
+```
+
+
+# Create new index.html file in public folder
+MILES write something to replace the default ng2mean tag and title here
+```
+rm src/index.html
+curl -o ./public/index.html https://raw.githubusercontent.com/milesstanfield/ng2mean/master/public/index.html
+```
+
+
+# Create Webpack related files
+```
+curl -o ./webpack.config.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/webpack.config.js
+curl -o ./src/vendor.ts https://raw.githubusercontent.com/milesstanfield/ng2mean/master/src/vendor.ts
+curl -o ./src/polyfills.ts https://raw.githubusercontent.com/milesstanfield/ng2mean/master/src/polyfills.ts
+```
+
+
+# Configure tsconfig.json file
+in ``src/tsconfig.json`` replace "files" with
+```
+"filesGlob": [
+  "app/**/*.ts",
+  "app/*.ts"
+],
+"files": [
+  "main.ts",
+  "../typings/browser.d.ts",
+  "../node_modules/zone.js/dist/zone.js.d.ts"
+],
+"exclude": [
+  "../node_modules",
+  "../typings/main.d.ts",
+  "../typings/main"
+],
+"atom": {
+  "rewriteTsconfig": false
+}
+```
+
+
+# Reconfigure typings.json file
+```
+rm typings.json && typings init
+typings install dt~node dt~core-js --global --save
+sed -i -e 's/global/ambient/g' ./typings.json
+rm typings.json-e
+```
+
+
+
+# Configure package.json scripts
+```
+"scripts": {
+  "start": "webpack-dev-server --inline --progress --colors --watch --display-error-details --display-cached --hot --port 8080",
+  "build": "npm run clean && webpack",
+  "clean": "rimraf dist typings && typings install",
+  "lint": "tslint \"src/**/*.ts\"",
+  "postinstall": "npm run clean",
+  "pree2e": "webdriver-manager update",
+  "test": "ng test",
+  "e2e": "protractor"
+},
+```
+
+
+# Ensure all dependencies are installed and scripts set
+```
+npm install
+```
+
+
+# Create and start MongoDB server
+```
+sudo mkdir -p /data/db
+sudo chown <YOUR_MAC_USERNAME> /data/db
+mongod
+```
+**hint:** you can find your mac username quickly with ``ls -la`` and you can interact with mongo shell (for debugging/dev) by running ``mongo --shell`` in another tab
+
+
+# Setup routes, express and db
+MILES update db.js with name of app
+```
+mkdir -p src/app/models src/app/routes/api
+curl -o ./server.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/server.js
+curl -o ./src/app/models/kitten.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/src/app/models/kitten.js
+curl -o src/app/routes/api/kittens.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/src/app/routes/kittens.js
+curl -o config/db.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/config/db.js
+```
+
+
+# Create Procfile
+```
+touch Procfile && echo "web: node server.js" > Procfile
+```
+
+
+# Bundle files
+```
+npm run build
+```
+
+
+# Start dev server
+```
+npm run start
+```
+
+
+# Start prod server
+```
+ node server.js
+```
+**hint:** make sure mongodb is running in a termnial tab
