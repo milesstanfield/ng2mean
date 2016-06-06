@@ -37,7 +37,7 @@ npm install -g angular-cli typescript
 mv src/favicon.ico public/
 ```
 
-**note to author:** investigate whether this is really needed
+> **note to author:** investigate whether this is really needed
 
 
 # Create new index.html file in public folder
@@ -46,7 +46,7 @@ rm src/index.html
 curl -o ./public/index.html https://raw.githubusercontent.com/milesstanfield/ng2mean/master/public/index.html
 ```
 
-**note to author:** write something to replace the default ng2mean tag and title here
+> **note to author:** write something to replace the default ng2mean tag and title here
 
 
 # Create Webpack related files
