@@ -8,8 +8,8 @@
     "build": "npm run clean && webpack",
     "clean": "rimraf dist typings && typings install",
     "lint": "tslint \"src/**/*.ts\"",
-    "heroku-prebuild": "typings init",
-    "postinstall": "npm run clean",
+    "heroku-prebuild": "npm install typings",
+    "postinstall": "typings install",
     "pree2e": "webdriver-manager update",
     "test": "ng test",
     "e2e": "protractor"
