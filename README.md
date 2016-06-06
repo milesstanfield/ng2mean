@@ -13,7 +13,7 @@ The following provides documentation on how to setup and host a production ready
 # Install global dependencies
 ```
 brew update
-brew install node mongodb
+brew install node mongodb heroku
 npm install -g angular-cli typescript
 ```
 
@@ -171,3 +171,11 @@ npm run start
  node server.js
 ```
 **hint:** make sure mongodb is running in a termnial tab
+
+
+# Push to Heroku
+```
+heroku create
+git push heroku master
+heroku ps:scale web=1
+```
