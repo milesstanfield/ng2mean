@@ -187,7 +187,6 @@ npm run start
 ```
 
 
-
 # Deploying to Heroku
 Create a heroku repo
 ```
