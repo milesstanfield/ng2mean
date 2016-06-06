@@ -27,7 +27,7 @@ npm install -g angular-cli typescript
 
 
 # Install dev dependencies
-``npm install babel-core babel-loader babel-preset-es2015 compression-webpack-plugin rimraf ts-helpers ts-loader webpack raw-loader json-loader --save-dev``
+``npm install babel-core babel-loader babel-preset-es2015 compression-webpack-plugin rimraf ts-helpers ts-loader webpack raw-loader json-loader to-string-loader --save-dev``
 
 
 # Move assets into public folder
@@ -98,6 +98,28 @@ rm typings.json-e
   "e2e": "protractor"
 },
 ```
+
+
+# Convert css/html files loaded in component to string
+**example:** within ``src/app/ng2mean.component.ts`` I replaced
+```
+@Component({
+  moduleId: module.id,
+  selector: 'ng2mean-app',
+  templateUrl: 'ng2mean.component.html',
+  styleUrls: ['ng2mean.component.css']
+})
+```
+with this
+```
+@Component({
+  moduleId: module.id,
+  selector: 'ng2mean-app',
+  template: require('to-string!./ng2mean.component.html'),
+  styleUrls: [require('to-string!./ng2mean.component.css')]
+})
+```
+[reference](https://github.com/AngularClass/angular2-webpack-starter/issues/126#issuecomment-154856364)
 
 
 # Ensure all dependencies are installed and scripts set

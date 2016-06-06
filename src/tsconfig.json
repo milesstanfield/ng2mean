@@ -15,8 +15,21 @@
     "inlineSources": true
   },
 
+  "filesGlob": [
+    "app/**/*.ts",
+    "app/*.ts"
+  ],
   "files": [
     "main.ts",
-    "typings.d.ts"
-  ]
+    "../typings/browser.d.ts",
+    "../node_modules/zone.js/dist/zone.js.d.ts"
+  ],
+  "exclude": [
+    "../node_modules",
+    "../typings/main.d.ts",
+    "../typings/main"
+  ],
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }
