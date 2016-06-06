@@ -167,19 +167,36 @@ npm run start
 
 
 # Start prod server
+**make sure mongodb is running in a termnial tab first**
 ```
  node server.js
 ```
-**hint:** make sure mongodb is running in a termnial tab
 
 
-# Push to Heroku
+
+# Deploying to Heroku
+Create a heroku repo
 ```
 heroku create
+```
+Push your code to Heroku
+```
 git push heroku master
+```
+Ensure at least 1 free dyno is running
+```
 heroku ps:scale web=1
+```
+install a sandbox mongodb
+```
 heroku addons:create mongolab:sandbox
-heroku open
-heroku restart
+```
+Tail the heroku logs and restart the server.
+```
 heroku logs -t
+heroku restart
+```
+If server is setup correctly you will see "Magic happening on your site" in your logs. You can now open the app in browser from command line
+```
+heroku open
 ```

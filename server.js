@@ -33,7 +33,11 @@ mongoose.connect(db.url, function (err, database) {
   }
   console.log("Database connection ready");
   app.listen(port, function() {
-    console.log('Magic happening at ' + 'http://localhost:' + port);
+    if (app.get('env') === 'development') {
+      console.log('Magic happening at ' + 'http://localhost:' + port);
+    } else {
+      console.log('Magic happening on your site')
+    }
   });
 });
 
