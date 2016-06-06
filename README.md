@@ -32,21 +32,23 @@ npm install -g angular-cli typescript
 ``npm install babel-core babel-loader babel-preset-es2015 compression-webpack-plugin rimraf ts-helpers ts-loader webpack raw-loader json-loader to-string-loader --save-dev``
 
 
-# Move assets into public folder
+# Move favicon into public folder
 ```
-mv src/favicon.ico public/
+mkdir public/images && mv src/favicon.ico public/images
 ```
 
-> **note to author:** investigate whether this is really needed
 
-
-# Create new index.html file in public folder
+# Format index.html file
+remove current cli-generated index.html and download a new one in the public folder
 ```
 rm src/index.html
-curl -o ./public/index.html https://raw.githubusercontent.com/milesstanfield/ng2mean/master/public/index.html
+curl -o public/index.html https://raw.githubusercontent.com/milesstanfield/ng2mean/master/public/index.html
 ```
-
-> **note to author:** write something to replace the ng2mean-app tag and title here
+download and execute script to automatically format the new index.html based upon your app name and specifications
+```
+curl -o update.index.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/update.index.js
+node update.index.js && rm update.index.js
+```
 
 
 # Create Webpack related files
@@ -80,7 +82,7 @@ in ``src/tsconfig.json`` replace "files" with
 ```
 
 
-# Reconfigure typings.json file
+# Configure typings.json file
 ```
 rm typings.json && typings init
 typings install dt~node dt~core-js --global --save
@@ -107,27 +109,13 @@ In ``package.json`` replace content of "scripts" with
 
 
 # Convert css/html files loaded in component to string
+```
+mkdir bin
+curl -o bin/string.require.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/string.require.js
+node bin/string.require.js src/
 
-**example:** within ``src/app/ng2mean.component.ts`` I replaced
-
+find src -name "**component.ts"
 ```
-@Component({
-  moduleId: module.id,
-  selector: 'ng2mean-app',
-  templateUrl: 'ng2mean.component.html',
-  styleUrls: ['ng2mean.component.css']
-})
-```
-with this
-```
-@Component({
-  moduleId: module.id,
-  selector: 'ng2mean-app',
-  template: require('to-string!./ng2mean.component.html'),
-  styleUrls: [require('to-string!./ng2mean.component.css')]
-})
-```
-[reference](https://github.com/AngularClass/angular2-webpack-starter/issues/126#issuecomment-154856364)
 
 
 # Ensure all dependencies are installed and scripts set
@@ -160,30 +148,27 @@ curl -o config/db.js https://raw.githubusercontent.com/milesstanfield/ng2mean/ma
 > **note to author:** write something to update db.js with name of users app
 
 
-# Create Procfile
+# Create Procfile for Heroku
 ```
 touch Procfile && echo "web: node server.js" > Procfile
 ```
 
 
-# Bundle the files
+# Bundle your files
 ```
 npm run build
 ```
 
 
-# Start dev server
+# Start server
+dev server runs at [localhost:3000/](localhost:3000/)
 ```
 npm run start
 ```
 
-
-# Test the prod server
-
-**important** make sure mongodb server is running in another termnial tab **first**
-
+**Optional:** test prod server locally [localhost:8080/](localhost:8080/)
 ```
- node server.js
+node server.js
 ```
 
 
@@ -216,3 +201,7 @@ heroku open
 
 # Notes
 You can view this app on Heroku [here](https://blooming-spire-73058.herokuapp.com/)
+
+
+# TODOS
+- silence some of the benign console erros in dev and also the webpack-dev-server errors
