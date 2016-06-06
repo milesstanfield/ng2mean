@@ -46,7 +46,7 @@ rm src/index.html
 curl -o ./public/index.html https://raw.githubusercontent.com/milesstanfield/ng2mean/master/public/index.html
 ```
 
-> **note to author:** write something to replace the <ng2mean-app> tag and <title> here
+> **note to author:** write something to replace the ng2mean-app tag and title here
 
 
 # Create Webpack related files
