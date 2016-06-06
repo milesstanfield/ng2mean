@@ -8,7 +8,9 @@ The following provides documentation on how to setup a production ready MEAN app
 - MongoDB + Mongoose
 - Express.js web framework
 
-*Note:* Angular2 and AngularCLI are in a state of flux atm. The following is confirmed to work as of *June5 2016*
+*Note:*
+Angular2 and AngularCLI are in a state of flux atm. The following is confirmed to work as of
+*June5 2016*
 ---
 
 # Install global dependencies
