@@ -46,7 +46,7 @@ rm src/index.html
 curl -o ./public/index.html https://raw.githubusercontent.com/milesstanfield/ng2mean/master/public/index.html
 ```
 
-> **note to author:** write something to replace the default ng2mean tag and title here
+> **note to author:** write something to replace the <ng2mean-app> tag and <title> here
 
 
 # Create Webpack related files
@@ -90,7 +90,8 @@ rm typings.json-e
 
 
 
-# Configure package.json scripts
+# Configure package scripts
+In ``package.json`` replace content of "scripts" with
 ```
 "scripts": {
   "start": "webpack-dev-server --inline --progress --colors --watch --display-error-details --display-cached --hot --port 8080",
@@ -106,7 +107,9 @@ rm typings.json-e
 
 
 # Convert css/html files loaded in component to string
+
 **example:** within ``src/app/ng2mean.component.ts`` I replaced
+
 ```
 @Component({
   moduleId: module.id,
@@ -139,11 +142,13 @@ sudo mkdir -p /data/db
 sudo chown <YOUR_MAC_USERNAME> /data/db
 mongod
 ```
-**hint:** you can find your mac username quickly with ``ls -la`` and you can interact with mongo shell (for debugging/dev) by running ``mongo --shell`` in another tab
+
+**hint:** you can find your mac username quickly with ``ls -la`` and
+
+**hint:** you can interact with mongo shell (for debugging/dev) by running ``mongo --shell`` in another tab
 
 
 # Setup routes, express and db
-MILES update db.js with name of app
 ```
 mkdir -p src/app/models src/app/routes/api
 curl -o ./server.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/server.js
@@ -152,6 +157,8 @@ curl -o src/app/routes/api/kittens.js https://raw.githubusercontent.com/milessta
 curl -o config/db.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/config/db.js
 ```
 
+> **note to author:** write something to update db.js with name of users app
+
 
 # Create Procfile
 ```
@@ -159,7 +166,7 @@ touch Procfile && echo "web: node server.js" > Procfile
 ```
 
 
-# Bundle files
+# Bundle the files
 ```
 npm run build
 ```
@@ -171,8 +178,10 @@ npm run start
 ```
 
 
-# Start prod server
-**make sure mongodb is running in a termnial tab first**
+# Test the prod server
+
+**important** make sure mongodb server is running in another termnial tab **first**
+
 ```
  node server.js
 ```
