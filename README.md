@@ -20,7 +20,7 @@ npm install -g angular-cli typescript
 ```
 
 
-# Bootstrap your angular app with
+# Bootstrap your angular app with angular-cli
 ``ng new <your-app-name> && cd <your-app-name>``
 
 
@@ -37,13 +37,16 @@ npm install -g angular-cli typescript
 mv src/favicon.ico public/
 ```
 
+**note to author:** investigate whether this is really needed
+
 
 # Create new index.html file in public folder
-MILES write something to replace the default ng2mean tag and title here
 ```
 rm src/index.html
 curl -o ./public/index.html https://raw.githubusercontent.com/milesstanfield/ng2mean/master/public/index.html
 ```
+
+**note to author:** write something to replace the default ng2mean tag and title here
 
 
 # Create Webpack related files
