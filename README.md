@@ -1,5 +1,5 @@
 # Introduction
-The following provides documentation on how to setup and host a production ready MEAN app with Angular2 (beta)
+The following provides documentation on how to setup a production ready MEAN app with Angular2 on Heroku<br><br>
 - written in Typescript
 - bootstrapped with angular-cli
 - bundled with Webpack
@@ -8,8 +8,7 @@ The following provides documentation on how to setup and host a production ready
 - MongoDB + Mongoose
 - Express.js web framework
 
-
-You can see this app on Heroku [here](https://blooming-spire-73058.herokuapp.com/)
+**Note:** Angular2 and AngularCLI are in a state of flux atm. The following is confirmed to work as of **June5 2016**
 ---
 
 # Install global dependencies
@@ -202,3 +201,6 @@ If server is setup correctly you will see "Magic happening on your site" in your
 ```
 heroku open
 ```
+
+# Notes
+You can view this app on Heroku [here](https://blooming-spire-73058.herokuapp.com/)
