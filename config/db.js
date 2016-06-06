@@ -1,3 +1,3 @@
 module.exports = {
-  url : process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/ng2mean'
+  url : process.env.MONGODB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/ng2mean'
 };

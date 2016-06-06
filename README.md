@@ -178,4 +178,8 @@ npm run start
 heroku create
 git push heroku master
 heroku ps:scale web=1
+heroku addons:create mongolab:sandbox
+heroku open
+heroku restart
+heroku logs -t
 ```
