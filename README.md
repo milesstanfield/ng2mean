@@ -60,25 +60,10 @@ curl -o ./src/polyfills.ts https://raw.githubusercontent.com/milesstanfield/ng2m
 
 
 # Configure tsconfig.json file
-in ``src/tsconfig.json`` replace "files" with
+Download & execute script to automatically edit tsconfig.json file. Then remove the script.
 ```
-"filesGlob": [
-  "app/**/*.ts",
-  "app/*.ts"
-],
-"files": [
-  "main.ts",
-  "../typings/browser.d.ts",
-  "../node_modules/zone.js/dist/zone.js.d.ts"
-],
-"exclude": [
-  "../node_modules",
-  "../typings/main.d.ts",
-  "../typings/main"
-],
-"atom": {
-  "rewriteTsconfig": false
-}
+curl -o update.index.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/config.tsconfig.js
+node config.tsconfig.js && rm config.tsconfig.js
 ```
 
 
