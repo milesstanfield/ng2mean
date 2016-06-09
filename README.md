@@ -38,7 +38,7 @@ mkdir public/images && mv src/favicon.ico public/images
 ```
 
 
-# Download and configure new index.html file
+# Create new index.html file
 Remove current cli-generated index.html and download a new one in the public folder
 ```
 rm src/index.html
@@ -75,7 +75,6 @@ typings install dt~node dt~core-js --global --save
 sed -i -e 's/global/ambient/g' ./typings.json
 rm typings.json-e
 ```
-
 
 
 # Configure package scripts
