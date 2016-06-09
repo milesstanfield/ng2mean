@@ -16,12 +16,10 @@ var assetPaths = fileString.match(/(['"])(.*?.html|.*?.css|.*?.pug|.*?.jade|.*?.
 if (assetPaths) {
   for (i = 0; i < assetPaths.length; i++) {
     var pathWithRequire = "require('to-string!./" + assetPaths[i].substring(1) + ')';
-    var sed = "sed -i -e \"s|" + assetPaths[i] + "|" + pathWithRequire + "|g\" " + file;
+    var sed = "sed -i '' \"s|" + assetPaths[i] + "|" + pathWithRequire + "|g\" " + file;
     exec(sed);
   };
 };
 
 // replace templateUrl: with template:
-exec("sed -i -e \"s|templateUrl|template|g\" " + file);
-// remove the generated sed file
-exec("rm " + (file + '-e'));
+exec("sed -i '' \"s|templateUrl|template|g\" " + file);

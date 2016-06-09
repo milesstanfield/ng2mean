@@ -38,20 +38,20 @@ mkdir public/images && mv src/favicon.ico public/images
 ```
 
 
-# Format index.html file
-remove current cli-generated index.html and download a new one in the public folder
+# Download and configure new index.html file
+Remove current cli-generated index.html and download a new one in the public folder
 ```
 rm src/index.html
 curl -o public/index.html https://raw.githubusercontent.com/milesstanfield/ng2mean/master/public/index.html
 ```
-download and execute script to automatically format the new index.html based upon your app name and specifications
+Download & execute script to automatically format the new index.html based upon your app name and specifications. Then remove the script.
 ```
 curl -o update.index.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/update.index.js
 node update.index.js && rm update.index.js
 ```
 
 
-# Create Webpack related files
+# Download Webpack related files
 ```
 curl -o ./webpack.config.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/webpack.config.js
 curl -o ./src/vendor.ts https://raw.githubusercontent.com/milesstanfield/ng2mean/master/src/vendor.ts
