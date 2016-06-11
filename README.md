@@ -95,7 +95,7 @@ node bin/string.require.js
 ```
 
 
-# Ensure all dependencies are installed and scripts set
+# Ensure dependencies are installed and scripts set
 ```
 npm install
 ```
