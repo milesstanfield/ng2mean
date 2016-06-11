@@ -1,9 +1,9 @@
 # Introduction
-The following provides documentation on how to setup a production ready MEAN app with Angular2 on Heroku<br><br>
-- written in Typescript
-- bootstrapped with angular-cli
-- bundled with Webpack
-- hosted on Heroku
+A 5min copy&paste guide to setting up a production ready MEAN web-app with Angular2 on Heroku <br><br>
+- Written in Typescript
+- Bootstrapped with angular-cli
+- Bundled with Webpack
+- Hosted on Heroku
 - Node.js backend server
 - MongoDB + Mongoose
 - Express.js web framework
@@ -46,8 +46,8 @@ curl -o public/index.html https://raw.githubusercontent.com/milesstanfield/ng2me
 ```
 Download & execute script to automatically format the new index.html based upon your app name and specifications. Then remove the script.
 ```
-curl -o update.index.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/update.index.js
-node update.index.js && rm update.index.js
+curl -o config.index.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/config.index.js
+node config.index.js && rm config.index.js
 ```
 
 
@@ -78,18 +78,11 @@ rm typings.json-e
 
 
 # Configure package scripts
-In ``package.json`` replace content of "scripts" with
+Download & execute files to automatically edit your package.json file. Then remove the downloaded files.
 ```
-"scripts": {
-  "start": "webpack-dev-server --inline --progress --colors --watch --display-error-details --display-cached --hot --port 8080",
-  "build": "npm run clean && webpack",
-  "clean": "rimraf dist typings && typings install",
-  "lint": "tslint \"src/**/*.ts\"",
-  "postinstall": "npm run clean",
-  "pree2e": "webdriver-manager update",
-  "test": "ng test",
-  "e2e": "protractor"
-},
+curl -o config.tsconfig.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/config.package.js
+curl -o ng2mean.package.json https://raw.githubusercontent.com/milesstanfield/ng2mean/master/package.json
+node config.package.js && rm config.package.js ng2mean.package.json
 ```
 
 
