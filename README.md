@@ -86,8 +86,8 @@ node config.package.js && rm config.package.js ng2mean.package.json
 ```
 
 
-# Convert css/html files loaded in component to string
-Download and run node script to convert component loaded files to string. Why? read [this](https://github.com/AngularClass/angular2-webpack-starter/issues/126#issuecomment-154856364)
+# Convert component loaded assets to string
+Download and execute. Why? read [this](https://github.com/AngularClass/angular2-webpack-starter/issues/126#issuecomment-154856364)
 ```
 mkdir bin
 curl -o bin/string.require.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/string.require.js
