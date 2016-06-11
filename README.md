@@ -39,12 +39,12 @@ mkdir public/images && mv src/favicon.ico public/images
 
 
 # Configure index.html file
-Remove current cli-generated index.html and download a new one in the public folder
+This will remove current cli-generated index.html and download a new one in the public folder
 ```
 rm src/index.html
 curl -o public/index.html https://raw.githubusercontent.com/milesstanfield/ng2mean/master/public/index.html
 ```
-Download & execute script to automatically format the new index.html based upon your app name and specifications. Then remove the script.
+This will download & execute script to automatically format the new index.html based upon your app name and specifications. Then it will remove the script.
 ```
 curl -o config.index.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/config.index.js
 node config.index.js && rm config.index.js
@@ -60,7 +60,7 @@ curl -o ./src/polyfills.ts https://raw.githubusercontent.com/milesstanfield/ng2m
 
 
 # Configure tsconfig.json file
-Download & execute files to automatically edit your tsconfig.json file. Then remove the downloaded files.
+This will download & execute files to automatically edit your tsconfig.json file. Then it will remove the downloaded files.
 ```
 curl -o config.tsconfig.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/config.tsconfig.js
 curl -o ng2mean.tsconfig.json https://raw.githubusercontent.com/milesstanfield/ng2mean/master/src/tsconfig.json
@@ -78,7 +78,7 @@ rm typings.json-e
 
 
 # Configure package scripts
-Download & execute files to automatically edit your package.json file. Then remove the downloaded files.
+This will download & execute files to automatically edit your package.json file. Then it will remove the downloaded files.
 ```
 curl -o config.tsconfig.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/config.package.js
 curl -o ng2mean.package.json https://raw.githubusercontent.com/milesstanfield/ng2mean/master/package.json
@@ -87,7 +87,7 @@ node config.package.js && rm config.package.js ng2mean.package.json
 
 
 # Convert component loaded assets to string
-Download and execute. Why? read [this](https://github.com/AngularClass/angular2-webpack-starter/issues/126#issuecomment-154856364)
+This will download and execute script to convert loaded assets to string. Why? read [this](https://github.com/AngularClass/angular2-webpack-starter/issues/126#issuecomment-154856364)
 ```
 mkdir bin
 curl -o bin/string.require.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/string.require.js
