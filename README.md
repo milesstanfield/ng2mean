@@ -101,22 +101,12 @@ npm install
 ```
 
 
-# Create and start MongoDB server
-```
-sudo mkdir -p /data/db
-sudo chown <YOUR_MAC_USERNAME> /data/db
-mongod
-```
-
-**hint:** you can find your mac username quickly with ``ls -la`` and
-
-
 # Setup routes, express and db
 ```
 mkdir -p src/app/models src/app/routes/api
 curl -o ./server.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/server.js
 curl -o ./src/app/models/kitten.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/src/app/models/kitten.js
-curl -o src/app/routes/api/kittens.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/src/app/routes/kittens.js
+curl -o src/app/routes/api/kittens.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/src/app/routes/api/kittens.js
 curl -o config/db.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/config/db.js
 ```
 
@@ -139,13 +129,25 @@ npm run build
 ```
 
 
+# Create and start MongoDB server
+```
+sudo mkdir -p /data/db
+sudo chown <YOUR_MAC_USERNAME> /data/db
+mongod
+```
+
+**hint:** you can find your mac username quickly with ``ls -la`` and
+
+
 # Start server
-dev server runs at [localhost:3000/](localhost:3000/)
+dev server runs at [localhost:3000/](localhost:8080/)
 ```
 npm run start
 ```
 
-**Optional:** test prod server locally [localhost:8080/](localhost:8080/)
+**note** there are currently some benign errors when running this ``ERROR in chunk app [entry]`` ignore them. I will investigate these further.
+
+**Optional:** test prod server locally [localhost:8080/](localhost:3000/)
 ```
 node server.js
 ```
@@ -155,6 +157,10 @@ node server.js
 Create a heroku repo
 ```
 heroku create
+```
+Make sure your changes are committed
+```
+git init && git add . && git commit -m 'initial commit'
 ```
 Push your code to Heroku
 ```
@@ -168,9 +174,12 @@ install a sandbox mongodb
 ```
 heroku addons:create mongolab:sandbox
 ```
-Tail the heroku logs and restart the server.
+Tail the heroku logs
 ```
 heroku logs -t
+```
+Open a new tab and restart the server.
+```
 heroku restart
 ```
 If server is setup correctly you will see "Magic happening on your site" in your logs. You can now open the app in browser from command line

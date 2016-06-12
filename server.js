@@ -18,7 +18,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // set the static files location
 app.use(express.static(__dirname + '/public'));
 // api routes
-require('./src/app/routes/api/kittens')(app);
+require(path.resolve(__dirname + '/src/app/routes/api/kittens'))(app);
 // route to handle all angular requests
 app.get('*', function(req, res) {
   var index = path.resolve(__dirname + '/public/index.html');
