@@ -8,7 +8,7 @@ A 5min copy&paste guide to setting up a production ready MEAN web-app with Angul
 - MongoDB + Mongoose
 - Express.js web framework
 
-**Note:** Angular2 and AngularCLI are in a state of flux atm. The following is confirmed to work as of **June5 2016**
+**Note:** Angular2 and AngularCLI are in a state of flux atm. The following is confirmed to work with ``angular-cli@1.0.0-beta.5`` as of **June12 2016**
 
 ---
 
