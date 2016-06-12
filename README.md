@@ -87,7 +87,7 @@ node config.package.js && rm config.package.js ng2mean.package.json
 
 
 # Convert component loaded assets to string
-This will download and execute script to convert loaded assets to string. Why? read [this](https://github.com/AngularClass/angular2-webpack-starter/issues/126#issuecomment-154856364)
+This will download and execute a script to convert loaded assets in \*\*.component.ts files to string. Why? read [this](https://github.com/AngularClass/angular2-webpack-starter/issues/126#issuecomment-154856364)
 ```
 mkdir bin
 curl -o bin/string.require.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/string.require.js
@@ -110,8 +110,6 @@ mongod
 
 **hint:** you can find your mac username quickly with ``ls -la`` and
 
-**hint:** you can interact with mongo shell (for debugging/dev) by running ``mongo --shell`` in another tab
-
 
 # Setup routes, express and db
 ```
@@ -122,7 +120,11 @@ curl -o src/app/routes/api/kittens.js https://raw.githubusercontent.com/milessta
 curl -o config/db.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/config/db.js
 ```
 
-> **note to author:** write something to update db.js with name of users app
+This downloads and executes a script to automatically update config/db.js with your app name, then delete the script
+```
+curl -o config.db.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/config.db.js
+node config.db.js && rm config.db.js
+```
 
 
 # Create Procfile for Heroku
@@ -178,6 +180,8 @@ heroku open
 
 # Notes
 You can view this app on Heroku [here](https://blooming-spire-73058.herokuapp.com/)
+
+You can interact with mongo shell (for debugging/dev) by running ``mongo --shell`` in another tab
 
 
 # TODOS
