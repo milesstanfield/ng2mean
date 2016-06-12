@@ -131,18 +131,14 @@ npm run build
 
 # Create and start MongoDB server
 
-**hint:** you can find your mac username quickly with ``ls -la`` and
-
 ```
 sudo mkdir -p /data/db
-sudo chown <YOUR_MAC_USERNAME> /data/db
+sudo chown `whoami` /data/db
 ```
-Open up a new tab and start mongodb server
+Open up a new tab and start a mongodb server
 ```
 mongod
 ```
-
-
 
 
 # Start server
@@ -177,11 +173,11 @@ Ensure at least 1 free dyno is running
 ```
 heroku ps:scale web=1
 ```
-install a sandbox mongodb
+Install a sandbox mongodb
 ```
 heroku addons:create mongolab:sandbox
 ```
-Open a new tab and restart the server.
+Restart the Heroku app.
 ```
 heroku restart
 ```
