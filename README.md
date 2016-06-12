@@ -130,6 +130,9 @@ npm run build
 
 
 # Create and start MongoDB server
+
+**hint:** you can find your mac username quickly with ``ls -la`` and
+
 ```
 sudo mkdir -p /data/db
 sudo chown <YOUR_MAC_USERNAME> /data/db
@@ -139,18 +142,19 @@ Open up a new tab and start mongodb server
 mongod
 ```
 
-**hint:** you can find your mac username quickly with ``ls -la`` and
+
 
 
 # Start server
-dev server runs at [localhost:3000/](localhost:8080/)
+dev server runs at [http://localhost:3000/](http://localhost:8080/)
 ```
 npm run start
 ```
 
 **note** there are currently some benign errors when running this ``ERROR in chunk app [entry]`` ignore them. I will investigate these further.
 
-**Optional:** test prod server locally [localhost:8080/](localhost:3000/)
+**Optional:** test prod server locally [http://localhost:8080/](http://localhost:3000/)
+
 ```
 node server.js
 ```
@@ -176,10 +180,6 @@ heroku ps:scale web=1
 install a sandbox mongodb
 ```
 heroku addons:create mongolab:sandbox
-```
-Tail the heroku logs
-```
-heroku logs -t
 ```
 Open a new tab and restart the server.
 ```
