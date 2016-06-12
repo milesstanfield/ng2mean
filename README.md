@@ -80,7 +80,7 @@ rm typings.json-e
 # Configure package scripts
 This will download & execute files to automatically edit your package.json file. Then it will remove the downloaded files.
 ```
-curl -o config.tsconfig.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/config.package.js
+curl -o config.package.js https://raw.githubusercontent.com/milesstanfield/ng2mean/master/bin/config.package.js
 curl -o ng2mean.package.json https://raw.githubusercontent.com/milesstanfield/ng2mean/master/package.json
 node config.package.js && rm config.package.js ng2mean.package.json
 ```
