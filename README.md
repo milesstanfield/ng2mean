@@ -133,6 +133,9 @@ npm run build
 ```
 sudo mkdir -p /data/db
 sudo chown <YOUR_MAC_USERNAME> /data/db
+```
+Open up a new tab and start mongodb server
+```
 mongod
 ```
 
