@@ -19,6 +19,9 @@ brew install node mongodb heroku
 npm install -g angular-cli typescript
 ```
 
+<!---
+start
+-->
 
 # Bootstrap your angular app with angular-cli
 ``ng new <your-app-name> && cd <your-app-name>``
@@ -128,6 +131,10 @@ touch Procfile && echo "web: node server.js" > Procfile
 npm run build
 ```
 
+<!---
+end
+-->
+
 
 # Create and start MongoDB server
 
@@ -147,13 +154,9 @@ dev server runs at [http://localhost:3000/](http://localhost:8080/)
 npm run start
 ```
 
-**note** there are currently some benign errors when running this ``ERROR in chunk app [entry]`` ignore them. I will investigate these further.
+**Note:** There's some benign errors when running this ``ERROR in chunk app [entry]`` ignore them. I will investigate these further.
 
-**Optional:** test prod server locally [http://localhost:8080/](http://localhost:3000/)
-
-```
-node server.js
-```
+**Optional:** You can test prod server locally by running ``node server.js`` and visiting [http://localhost:8080/](http://localhost:3000/)
 
 
 # Deploying to Heroku
