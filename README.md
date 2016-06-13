@@ -19,9 +19,6 @@ brew install node mongodb heroku
 npm install -g angular-cli typescript
 ```
 
-<!---
-start
--->
 
 # Bootstrap your angular app with angular-cli
 ``ng new <your-app-name> && cd <your-app-name>``
@@ -131,10 +128,6 @@ touch Procfile && echo "web: node server.js" > Procfile
 npm run build
 ```
 
-<!---
-end
--->
-
 
 # Create and start MongoDB server
 
@@ -159,35 +152,17 @@ npm run start
 **Optional:** You can test prod server locally by running ``node server.js`` and visiting [http://localhost:8080/](http://localhost:3000/)
 
 
-# Deploying to Heroku
-Create a heroku repo
-```
-heroku create
-```
-Make sure your changes are committed
+# Commit and deploy to Heroku
 ```
 git init && git add . && git commit -m 'initial commit'
-```
-Push your code to Heroku
-```
+heroku create
 git push heroku master
-```
-Ensure at least 1 free dyno is running
-```
 heroku ps:scale web=1
-```
-Install a sandbox mongodb
-```
 heroku addons:create mongolab:sandbox
-```
-Restart the Heroku app.
-```
 heroku restart
-```
-If server is setup correctly you will see "Magic happening on your site" in your logs. You can now open the app in browser from command line
-```
 heroku open
 ```
+
 
 # Notes
 You can view this app on Heroku [here](https://blooming-spire-73058.herokuapp.com/)
